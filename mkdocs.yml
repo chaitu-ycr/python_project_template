@@ -1,15 +1,14 @@
 site_name: python_project_template
-site_url: https://chaitu-ycr.github.io/python_project_template/
+site_url: https://vaagupally.github.io/python_project_template/
 site_description: this is python project template description
-site_author: chaitu-ycr
+site_author: vaagupally
 
-repo_name: chaitu-ycr/python_project_template
-repo_url: https://github.com/chaitu-ycr/python_project_template.git
+repo_name: vaagupally/python_project_template
+repo_url: https://github.com/vaagupally/python_project_template.git
 edit_uri: blob/main/docs/
 
 theme:
   name: readthedocs
-  logo: images/package_logo.png
   features:
     - toc.integrate
 
@@ -19,17 +18,17 @@ nav:
 
 plugins:
   - mkdocstrings:
-    handlers:
-      python:
-        options:
-          docstring_style: google
-          show_source: false
-          merge_init_into_class: true
-          show_docstring_modules: false
-        setup_commands:
-          - import sys
-          - sys.path.append('./python_project_template')
-        selection:
-          new_path_syntax: true
+      handlers:
+        python:
+          options:
+            docstring_style: google
+            show_source: false
+            merge_init_into_class: true
+            show_docstring_modules: false
+          setup_commands:
+            - import sys
+            - sys.path.append('./python_project_template')
+          selection:
+            new_path_syntax: true
   - include-markdown:
       recursive: true
