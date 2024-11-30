@@ -1,8 +1,16 @@
-# py_proj_template
+# python_project_template
 
 My Python 🐍 projects template. MKDocs is used for documentation.
 
-## Acknowledgements
+## environment setup
 
-I want to thank plants 🎋 for providing me oxygen each day.
-Also, I want to thank the sun 🌄 for providing more than half of their nourishment free of charge.
+* run `scripts/venv_setup.bat`
+
+## build wheel package
+
+* run `scripts/build_wheel_package.bat`
+
+## run package test cases
+
+* run `run_pytests.bat` or
+* run `run_pytests_with_report.bat` or

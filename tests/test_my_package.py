@@ -1,4 +1,4 @@
-from src.my_module import MyClass
+from python_project_template import MyClass
 
 
 def test_importing():

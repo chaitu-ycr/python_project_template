@@ -1,27 +1,35 @@
-site_name: py_proj_template
-site_url: https://chaitu-ycr.github.io/py_proj_template/
-site_description: Enter project description here
+site_name: python_project_template
+site_url: https://chaitu-ycr.github.io/python_project_template/
+site_description: this is python project template description
 site_author: chaitu-ycr
 
-repo_name: chaitu-ycr/py_proj_template
-repo_url: https://github.com/chaitu-ycr/py_proj_template.git
+repo_name: chaitu-ycr/python_project_template
+repo_url: https://github.com/chaitu-ycr/python_project_template.git
 edit_uri: blob/main/docs/
 
-nav:
-  - about: index.md
-  - reference: 999_reference.md
-
 theme:
-  name: material
+  name: readthedocs
   logo: images/package_logo.png
   features:
     - toc.integrate
 
-plugins:
-  - mkdocstrings
-  - search
+nav:
+  - Overview: index.md
+  - Reference: reference_manual.md
 
-markdown_extensions:
-  - def_list
-  - pymdownx.tasklist:
-      custom_checkbox: true
+plugins:
+  - mkdocstrings:
+    handlers:
+      python:
+        options:
+          docstring_style: google
+          show_source: false
+          merge_init_into_class: true
+          show_docstring_modules: false
+        setup_commands:
+          - import sys
+          - sys.path.append('./python_project_template')
+        selection:
+          new_path_syntax: true
+  - include-markdown:
+      recursive: true

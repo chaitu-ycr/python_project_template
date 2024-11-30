@@ -1,3 +1,3 @@
-# [my_package](https://github.com/chaitu-ycr/py_proj_template.git)
+# python_project_template
 
-Python Package Template repository
+{% include "../README.md" %}

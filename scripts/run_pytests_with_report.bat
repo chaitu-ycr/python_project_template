@@ -1,6 +1,6 @@
 @echo off
 
-title "running pytests"
+title "running pytests with report"
 
 pushd %~dp0
 cd ..
@@ -16,7 +16,7 @@ poetry install
 if %ERRORLEVEL% NEQ 0 (GOTO ERROR)
 
 :START_PYTESTS
-poetry run pytest
+pytest tests/ --html=tests/report/full_test_teport.html --self-contained-html
 if %ERRORLEVEL% NEQ 0 (GOTO ERROR)
 
 :END
