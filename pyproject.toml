@@ -5,8 +5,8 @@ description = "this is python project template description"
 authors = ["chaitu-ycr <chaitu.ycr@gmail.com>"]
 license = "LICENSE"
 readme = "README.md"
-homepage = "https://github.com/chaitu-ycr/python_project_template.git"
-repository = "https://github.com/chaitu-ycr/python_project_template.git"
+homepage = "https://github.com/chaitu-ycr/python_project_template"
+repository = "https://github.com/chaitu-ycr/python_project_template"
 documentation = "https://chaitu-ycr.github.io/python_project_template/"
 
 [tool.poetry.dependencies]

@@ -4,7 +4,7 @@ site_description: this is python project template description
 site_author: chaitu-ycr
 
 repo_name: chaitu-ycr/python_project_template
-repo_url: https://github.com/chaitu-ycr/python_project_template.git
+repo_url: https://github.com/chaitu-ycr/python_project_template
 edit_uri: blob/main/docs/
 
 theme:
