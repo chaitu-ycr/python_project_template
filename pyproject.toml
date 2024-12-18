@@ -2,12 +2,12 @@
 name = "python_project_template"
 version = "0.0.1"
 description = "this is python project template description"
-authors = ["vaagupally <vaagupally@gmail.com>"]
+authors = ["chaitu-ycr <chaitu.ycr@gmail.com>"]
 license = "LICENSE"
 readme = "README.md"
-homepage = "https://github.com/vaagupally/python_project_template.git"
-repository = "https://github.com/vaagupally/python_project_template.git"
-documentation = "https://vaagupally.github.io/python_project_template/"
+homepage = "https://github.com/chaitu-ycr/python_project_template.git"
+repository = "https://github.com/chaitu-ycr/python_project_template.git"
+documentation = "https://chaitu-ycr.github.io/python_project_template/"
 
 [tool.poetry.dependencies]
 python = "^3.9"

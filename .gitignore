@@ -130,6 +130,7 @@ dmypy.json
 
 # user ignored data
 .temp
+_temp
 poetry.lock
 .vscode
 /tests/report/
