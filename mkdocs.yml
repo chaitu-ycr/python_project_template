@@ -7,11 +7,6 @@ repo_name: chaitu-ycr/python_project_template
 repo_url: https://github.com/chaitu-ycr/python_project_template
 edit_uri: blob/main/docs/
 
-theme:
-  name: readthedocs
-  features:
-    - toc.integrate
-
 nav:
   - Overview: index.md
   - Reference: reference_manual.md
@@ -25,10 +20,12 @@ plugins:
             show_source: false
             merge_init_into_class: true
             show_docstring_modules: false
-          setup_commands:
-            - import sys
-            - sys.path.append('./python_project_template')
-          selection:
-            new_path_syntax: true
   - include-markdown:
       recursive: true
+  - search
+
+theme:
+  name: readthedocs
+  features:
+    - toc.integrate
+    - search

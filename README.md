@@ -13,4 +13,4 @@ My Python 🐍 projects template. MKDocs is used for documentation.
 ## run package test cases
 
 * run `run_pytests.bat` or
-* run `run_pytests_with_report.bat` or
+* run `run_pytests_with_report.bat`
