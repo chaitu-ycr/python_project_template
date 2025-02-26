@@ -27,28 +27,33 @@ jobs:
           python -m pip install --upgrade poetry
           poetry install
 
-      - name: Read Version and Create Tag and Release
+      - name: Read Version, Create Tag, and Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           $PKG_VERSION = (poetry version --short)
-          git tag v$PKG_VERSION
-          git push origin v$PKG_VERSION
-          $json = @"
-          {
-            "tag_name": "v$PKG_VERSION",
-            "target_commitish": "main",
-            "name": "Release v$PKG_VERSION",
-            "body": "Description of the release",
-            "draft": $false,
-            "prerelease": $true
-          }
-          "@
-          curl -X POST `
-            -H "Authorization: token $env:GITHUB_TOKEN" `
-            -H "Accept: application/vnd.github.v3+json" `
-            https://api.github.com/repos/${{ github.repository }}/releases `
-            -d $json
+          $TAG_NAME = "v$PKG_VERSION"
+      
+          # Create and push the Git tag
+          git tag $TAG_NAME
+          git push origin $TAG_NAME
+      
+          # Construct the release payload
+          $releasePayload = @{
+            tag_name = $TAG_NAME
+            target_commitish = "main" # or your default branch
+            name = "Release $TAG_NAME"
+            body = "Description of the release" # Customize this
+            draft = $false
+            prerelease = $false # or $true based on your needs
+          } | ConvertTo-Json -Compress # Use -Compress for cleaner JSON
+      
+          # Create the GitHub release
+          $releaseUrl = "https://api.github.com/repos/${{ github.repository }}/releases"
+          Invoke-RestMethod -Uri $releaseUrl -Method Post -Headers @{
+            Authorization = "token $env:GITHUB_TOKEN"
+            Accept = "application/vnd.github.v3+json"
+          } -Body $releasePayload -ContentType "application/json"
         shell: pwsh
 
       - name: Upload Release Assets
