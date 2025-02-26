@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   publish-release-build:
@@ -29,20 +29,20 @@ jobs:
 
       - name: Read version from pyproject.toml
         id: get_version
-        run: echo "::set-output name=VERSION::$(poetry version --short)"
+        run: echo "PKG_VERSION=$(poetry version --short)" >> $GITHUB_ENV
 
       - name: Create tag
         id: create_tag
         run: |
-          git tag v${{ steps.get_version.outputs.VERSION }}
-          git push origin v${{ steps.get_version.outputs.VERSION }}
+          git tag v${{ env.PKG_VERSION }}
+          git push origin v${{ env.PKG_VERSION }}
 
       - name: Create release
         id: create_release
         uses: actions/create-release@v1
         with:
-          tag_name: v${{ steps.get_version.outputs.VERSION }}
-          release_name: Release v${{ steps.get_version.outputs.VERSION }}
+          tag_name: v${{ env.PKG_VERSION }}
+          release_name: Release v${{ env.PKG_VERSION }}
           draft: false
           prerelease: true
 
