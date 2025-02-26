@@ -1,6 +1,6 @@
 [project]
 name = "python_project_template"
-version = "0.0.2"
+version = "0.0.1"
 description = "this is python project template description"
 license = { text = "LICENSE" }
 readme = "README.md"
@@ -23,6 +23,7 @@ documentation = "https://chaitu-ycr.github.io/python_project_template/"
 python = ">=3.9"
 
 [tool.poetry.group.dev.dependencies]
+pylint = "*"
 pytest = "*"
 pytest-html = "*"
 pytest-sugar = "*"
