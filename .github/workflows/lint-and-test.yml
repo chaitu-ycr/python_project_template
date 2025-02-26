@@ -1,11 +1,11 @@
-name: lint_and_test
+name: lint-and-test
 
 on:
   push:
   workflow_dispatch:
 
 jobs:
-  lint_and_test:
+  lint-and-test:
     runs-on: windows-latest
 
     steps:

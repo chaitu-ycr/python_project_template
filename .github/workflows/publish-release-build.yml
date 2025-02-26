@@ -43,7 +43,7 @@ jobs:
           $releasePayload = @{
             tag_name = $TAG_NAME
             target_commitish = "main" # or your default branch
-            name = "Release $TAG_NAME"
+            name = "$TAG_NAME"
             body = "Description of the release" # Customize this
             draft = $false
             prerelease = $false # or $true based on your needs
@@ -56,14 +56,6 @@ jobs:
             Accept = "application/vnd.github.v3+json"
           } -Body $releasePayload -ContentType "application/json"
         shell: pwsh
-
-      - name: Upload Release Assets
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        uses: actions/upload-artifact@v4
-        with:
-          name: release-dists
-          path: dist/
 
       # Uncomment the following step to publish to PyPi
       # - name: Publish to PyPi
