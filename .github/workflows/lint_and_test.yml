@@ -10,15 +10,15 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.x"
 
       - name: Cache dependencies
-        uses: actions/cache
+        uses: actions/cache@v4
         with:
           path: ~/.cache/pip
           key: ${{ runner.os }}-pip-${{ hashFiles('**/poetry.lock') }}
@@ -40,15 +40,15 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.x"
 
       - name: Cache dependencies
-        uses: actions/cache
+        uses: actions/cache@v4
         with:
           path: ~/.cache/pip
           key: ${{ runner.os }}-pip-${{ hashFiles('**/poetry.lock') }}
@@ -72,15 +72,15 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python
+        uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
 
       - name: Cache dependencies
-        uses: actions/cache
+        uses: actions/cache@v4
         with:
           path: ~/.cache/pip
           key: ${{ runner.os }}-pip-${{ hashFiles('**/poetry.lock') }}
@@ -102,10 +102,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.x"
 
@@ -119,7 +119,7 @@ jobs:
         run: poetry run pytest --junitxml=result.xml
 
       - name: Upload test results
-        uses: actions/upload-artifact
+        uses: actions/upload-artifact@v4
         with:
           name: test-results
           path: result.xml

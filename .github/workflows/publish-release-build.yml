@@ -1,4 +1,4 @@
-name: Publish Release Build
+name: publish-release-build
 
 on:
   release:
@@ -14,10 +14,10 @@ jobs:
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.x"
 
