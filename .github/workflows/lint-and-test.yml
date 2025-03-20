@@ -20,18 +20,18 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m pip install poetry
-          poetry build
-          poetry install
+          python -m pip install --upgrade uv
+          uv sync --link-mode=copy
+          uv build
 
       - name: Run pylint
-        run: poetry run pylint python_project_template
+        run: uv run pylint python_project_template
 
       - name: Run pytest
-        run: poetry run pytest
+        run: uv run pytest
 
       - name: Run pytest with junitxml
-        run: poetry run pytest --junitxml=result.xml
+        run: uv run pytest --junitxml=result.xml
 
       - name: Upload test results
         uses: actions/upload-artifact@v4
