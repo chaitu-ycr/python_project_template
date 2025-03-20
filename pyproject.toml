@@ -4,7 +4,7 @@ version = "0.0.1"
 description = "this is python project template description"
 license = { text = "LICENSE" }
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.11"
 authors = [{ name = "chaitu-ycr", email = "chaitu.ycr@gmail.com" }]
 keywords = ["python", "template"]
 classifiers = [
@@ -12,34 +12,30 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: Microsoft :: Windows"
 ]
-dynamic = [ "dependencies" ]
+dependencies = [
+    "pylint",
+    "pytest",
+    "pytest-html",
+    "pytest-sugar",
+    "pytest-clarity",
+    "pytest-cov",
+    "pytest-mock",
+    "pytest-xdist",
+    "pytest-timeout",
+    "pytest-randomly",
+    "pytest-rerunfailures",
+    "pytest-watch",
+    "pytest-pdb",
+    "mkdocs-material",
+    "mkdocstrings-python",
+    "mkdocs-include-markdown-plugin"
+]
 
 [project.urls]
 homepage = "https://github.com/chaitu-ycr/python_project_template"
 repository = "https://github.com/chaitu-ycr/python_project_template"
 documentation = "https://chaitu-ycr.github.io/python_project_template/"
 
-[tool.poetry.dependencies]
-python = ">=3.9"
-
-[tool.poetry.group.dev.dependencies]
-pylint = "*"
-pytest = "*"
-pytest-html = "*"
-pytest-sugar = "*"
-pytest-clarity = "*"
-pytest-cov = "*"
-pytest-mock = "*"
-pytest-xdist = "*"
-pytest-timeout = "*"
-pytest-randomly = "*"
-pytest-rerunfailures = "*"
-pytest-watch = "*"
-pytest-pdb = "*"
-mkdocs-material = "*"
-mkdocstrings-python = "*"
-mkdocs-include-markdown-plugin = "*"
-
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"

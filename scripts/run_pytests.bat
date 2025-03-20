@@ -11,12 +11,12 @@ set cmd_venv_deactivate=%CD%\.venv\Scripts\deactivate.bat
 call %cmd_venv_activate%
 if %ERRORLEVEL% NEQ 0 (GOTO ERROR)
 
-:POETRY_SETUP
-poetry install
+:UV_SETUP
+uv sync --link-mode=copy
 if %ERRORLEVEL% NEQ 0 (GOTO ERROR)
 
 :START_PYTESTS
-poetry run pytest
+pytest
 if %ERRORLEVEL% NEQ 0 (GOTO ERROR)
 
 :END

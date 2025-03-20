@@ -1,6 +1,6 @@
 @echo off
 
-title "poetry build python wheel"
+title "build python wheel using setuptools and uv"
 
 pushd %~dp0
 cd ..
@@ -11,8 +11,12 @@ set cmd_venv_deactivate=%CD%\.venv\Scripts\deactivate.bat
 call %cmd_venv_activate%
 if %ERRORLEVEL% NEQ 0 (GOTO ERROR)
 
+:UV_SETUP
+uv sync --link-mode=copy
+if %ERRORLEVEL% NEQ 0 (GOTO ERROR)
+
 :BUILD_PACKAGE
-poetry build
+uv build
 if %ERRORLEVEL% NEQ 0 (GOTO ERROR)
 
 :END
@@ -21,7 +25,7 @@ popd
 GOTO :eof
 
 :ERROR
-title "Failed to run pytests due to error %ERRORLEVEL%"
+title "Failed to build package due to error %ERRORLEVEL%"
 popd
 pause
 GOTO :eof

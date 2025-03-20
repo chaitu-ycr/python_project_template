@@ -9,13 +9,12 @@ set python_exe=%python_venv_path%\Scripts\python.exe
 
 :PYTHON_VENV
 if exist %python_venv_path% (
-	echo "using '%python_exe%' python."
-	echo "upgrade python pip module, install poetry and install repo dependencies..."
-	%python_exe% -m pip install pip --upgrade
-	%python_exe% -m pip install poetry --upgrade
-	%python_exe% -m poetry lock
-	%python_exe% -m poetry install
-	echo "completed installing tool dependencies."
+    echo "using '%python_exe%' python."
+    echo "upgrade python pip module, install uv, and install repo dependencies..."
+    %python_exe% -m pip install pip --upgrade
+    %python_exe% -m pip install uv --upgrade
+    %python_exe% -m uv sync --link-mode=copy
+    echo "completed installing tool dependencies."
 ) else (
     GOTO :VENV_ERROR
 )

@@ -11,6 +11,10 @@ set cmd_venv_deactivate=%CD%\.venv\Scripts\deactivate.bat
 call %cmd_venv_activate%
 if %ERRORLEVEL% NEQ 0 (GOTO ERROR)
 
+:UV_SETUP
+uv sync --link-mode=copy
+if %ERRORLEVEL% NEQ 0 (GOTO ERROR)
+
 :START_MKDOCS_SERVER
 mkdocs gh-deploy
 if %ERRORLEVEL% NEQ 0 (GOTO ERROR)
@@ -25,5 +29,3 @@ title "Failed to run mkdocs due to error %ERRORLEVEL%"
 popd
 pause
 GOTO :eof
-
-popd
