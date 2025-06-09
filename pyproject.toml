@@ -26,6 +26,7 @@ dev = [
     "pytest-xdist",
     "pytest-watch",
     "mkdocs-material",
+    "mkdocs-jupyter",
     "mkdocstrings-python",
     "mkdocs-macros-plugin",
     "mkdocs-include-markdown-plugin",
