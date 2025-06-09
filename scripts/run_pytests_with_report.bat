@@ -24,7 +24,7 @@ if %ERRORLEVEL% NEQ 0 goto ERROR
 REM ----------------------------
 REM 2. Sync Dependencies
 REM ----------------------------
-uv sync --link-mode=copy
+uv sync --extra dev --link-mode=copy
 if %ERRORLEVEL% NEQ 0 goto ERROR
 
 REM ----------------------------
