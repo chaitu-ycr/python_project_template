@@ -1,6 +1,6 @@
 [project]
 name = "python_project_template"
-version = "0.1.1"
+version = "0.1.2"
 description = "My Python Projects Template"
 license = { file = "LICENSE" }
 readme = "README.md"
@@ -16,8 +16,9 @@ dependencies = [
     "requests"
 ]
 
-[project.optional-dependencies]
+[dependency-groups]
 dev = [
+    "ruff",
     "pytest",
     "pytest-html",
     "pytest-sugar",
@@ -38,6 +39,16 @@ dev = [
 homepage = "https://github.com/chaitu-ycr/python_project_template"
 repository = "https://github.com/chaitu-ycr/python_project_template"
 documentation = "https://chaitu-ycr.github.io/python_project_template/"
+
+[tool.uv]
+package = true
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
 
 [build-system]
 requires = ["uv_build"]
